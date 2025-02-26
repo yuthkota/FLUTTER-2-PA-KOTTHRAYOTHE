@@ -4,7 +4,6 @@ import '../../../model/ride_pref/ride_pref.dart';
 import '../../../utils/animations_util.dart';
 import '../../location_picker_screen.dart';
 
-
 class RidePrefForm extends StatefulWidget {
   final RidePref? initRidePref;
 
@@ -37,7 +36,9 @@ class _RidePrefFormState extends State<RidePrefForm> {
   void _selectDeparture(Location location) {
     if (arrival != null && arrival == location) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Departure and arrival locations cannot be the same.')),
+        const SnackBar(
+            content:
+                Text('Departure and arrival locations cannot be the same.')),
       );
       return;
     }
@@ -49,7 +50,9 @@ class _RidePrefFormState extends State<RidePrefForm> {
   void _selectArrival(Location location) {
     if (departure != null && departure == location) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Departure and arrival locations cannot be the same.')),
+        const SnackBar(
+            content:
+                Text('Departure and arrival locations cannot be the same.')),
       );
       return;
     }
@@ -99,7 +102,7 @@ class _RidePrefFormState extends State<RidePrefForm> {
           title: Text(departure?.name ?? 'Leaving from'),
           onTap: () {
             Navigator.of(context).push(
-              AnimationUtils.createBottomToTopRoute( 
+              AnimationUtils.createBottomToTopRoute(
                 LocationPickerScreen(
                   onLocationSelected: _selectDeparture,
                 ),
@@ -113,7 +116,7 @@ class _RidePrefFormState extends State<RidePrefForm> {
           title: Text(arrival?.name ?? 'Going to'),
           onTap: () {
             Navigator.of(context).push(
-              AnimationUtils.createBottomToTopRoute( 
+              AnimationUtils.createBottomToTopRoute(
                 LocationPickerScreen(
                   onLocationSelected: _selectArrival,
                 ),
@@ -122,14 +125,12 @@ class _RidePrefFormState extends State<RidePrefForm> {
           },
         ),
         const Divider(),
-
         IconButton(
           icon: const Icon(Icons.swap_horiz),
           onPressed: _switchLocations,
           tooltip: 'Switch locations',
         ),
         const Divider(),
-
         ListTile(
           leading: const Icon(Icons.calendar_today),
           title: Text(
@@ -160,7 +161,9 @@ class _RidePrefFormState extends State<RidePrefForm> {
             onPressed: () {
               if (departure == null || arrival == null) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Please select departure and arrival locations.')),
+                  const SnackBar(
+                      content: Text(
+                          'Please select departure and arrival locations.')),
                 );
                 return;
               }
@@ -173,8 +176,6 @@ class _RidePrefFormState extends State<RidePrefForm> {
               );
               print(ridePref);
             },
-
-            
             child: const Text('Search'),
           ),
         ),
