@@ -40,8 +40,8 @@ class _LocationPickerScreenState extends State<LocationPickerScreen> {
 
         // Exclude selected location if needed
         if (widget.excludedLocation != null) {
-          _filteredLocations.removeWhere(
-              (location) => location == widget.excludedLocation);
+          _filteredLocations
+              .removeWhere((location) => location == widget.excludedLocation);
         }
       } else {
         _filteredLocations.clear();
@@ -51,7 +51,8 @@ class _LocationPickerScreenState extends State<LocationPickerScreen> {
 
   /// Handles location selection, ensuring the excluded location is not chosen
   void _selectLocation(Location location) {
-    if (widget.excludedLocation != null && location == widget.excludedLocation) {
+    if (widget.excludedLocation != null &&
+        location == widget.excludedLocation) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text("This location is already selected."),
