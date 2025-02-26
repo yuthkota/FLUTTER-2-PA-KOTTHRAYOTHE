@@ -20,7 +20,7 @@ class BlaButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color buttonColor;
-    
+
     if (disabled) {
       buttonColor = BlaColors.disabled;
     } else {
