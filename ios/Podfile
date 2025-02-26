@@ -1,0 +1,11 @@
+platform :ios, '12.0'  # Set the minimum iOS version
+
+# Prevent Cocoapods from using the new "modular_headers" feature
+# This is especially helpful if you have issues with third-party libraries
+use_frameworks!
+
+target 'Runner' do
+  # Flutter-specific configurations
+  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+end
+
